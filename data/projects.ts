@@ -30,11 +30,11 @@ export const projects: Project[] = [
     title: "Modern Bank Data Platform",
     eyebrow: "Banking data product",
     summary:
-      "A polished banking data product demo for executive KPIs, complaint analytics, credit risk visibility, governance, and AI-ready data foundations.",
+      "A flagship banking data product demo for executive KPIs, complaint analytics, credit risk visibility, governance, and AI-ready data foundations.",
     problem:
       "Banks need trusted, governed data products for growth, risk, complaints, and AI, but critical metrics often live across fragmented systems and inconsistent definitions.",
     sector: "Banking and financial services",
-    value: "Shows how data product management, medallion architecture, semantic metrics, and governance can turn banking data into executive decision support.",
+    value: "Shows how data product management, medallion architecture, semantic metrics, and governance turn banking data into board-ready decision support.",
     repo: "https://github.com/tededmunds/portfolio/tree/main/app/projects/banking-data-platform",
     readme: "https://github.com/tededmunds/portfolio/blob/main/docs/modern-bank-data-platform/README.md",
     metrics: ["$42.8B deposits", "$31.4B loans", "8.7 complaints / 10K", "87 AI readiness"],

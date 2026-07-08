@@ -5,9 +5,19 @@
   "executive_kpis": {
     "total_deposits_usd_billions": 42.8,
     "loan_portfolio_usd_billions": 31.4,
+    "loan_growth_percent_qoq": 6.2,
     "net_interest_margin_percent": 3.42,
+    "delinquency_30_plus_percent": 1.42,
     "complaints_per_10000_customers": 8.7,
+    "digital_adoption_percent": 68.4,
+    "data_quality_score": 94.1,
     "ai_readiness_index": 87
+  },
+  "governance": {
+    "critical_data_elements_tracked": 5,
+    "kpi_certification_percent": 76,
+    "ai_summary_evidence_coverage_percent": 88,
+    "pii_policy": "synthetic demo only; production would require tokenization, role-based access, audit logging, and retention controls"
   },
   "sources": [
     "CFPB Consumer Complaint Database integration placeholder",

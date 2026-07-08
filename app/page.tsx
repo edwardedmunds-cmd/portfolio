@@ -35,6 +35,9 @@ const outcomes = [
 ];
 
 export default function Home() {
+  const featuredProject = projects.find((project) => project.slug === "banking-data-platform");
+  const remainingProjects = projects.filter((project) => project.slug !== "banking-data-platform");
+
   return (
     <main>
       <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-24">
@@ -88,11 +91,53 @@ export default function Home() {
 
       <Section
         eyebrow="Featured case studies"
-        title="Live analytics products, not static artifacts"
-        description="Each case study combines business problem framing, fictional dashboard data, architecture, product tradeoffs, and the hiring signal it is meant to demonstrate."
+        title="Executive data products for regulated industries"
+        description="The portfolio leads with a banking platform demo built to show data product management, governance, architecture, AI readiness, and executive reporting in one polished case study."
       >
+        {featuredProject ? (
+          <div data-testid="homepage-bank-feature" className="mb-5 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="rounded-lg border border-slate-200 bg-slate-950 p-6 text-white shadow-sm">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-teal-300">Featured project</p>
+              <h3 className="mt-3 text-3xl font-bold tracking-tight">{featuredProject.title}</h3>
+              <p className="mt-4 max-w-3xl leading-8 text-slate-300">{featuredProject.summary}</p>
+              <p className="mt-4 max-w-3xl leading-8 text-slate-300">{featuredProject.value}</p>
+              <div className="mt-5 grid gap-3 sm:grid-cols-4">
+                {featuredProject.metrics.map((metric) => (
+                  <span key={metric} className="rounded-md border border-slate-700 bg-slate-900 p-3 text-sm font-bold text-slate-100">
+                    {metric}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link href={`/projects/${featuredProject.slug}`} className="rounded-md bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:bg-slate-100">
+                  Open Banking Demo
+                </Link>
+                {featuredProject.readme ? (
+                  <a href={featuredProject.readme} className="rounded-md border border-slate-600 px-5 py-3 text-sm font-bold text-white hover:border-slate-400">
+                    Read GitHub README
+                  </a>
+                ) : null}
+              </div>
+            </div>
+            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">What hiring managers should see fast</p>
+              <div className="mt-5 grid gap-3">
+                {[
+                  "Banking KPIs tied to source lineage and ownership",
+                  "Medallion architecture with semantic and governance layers",
+                  "AI insights grounded in certified data products",
+                  "Roadmap, backlog, personas, risks, and success metrics"
+                ].map((item) => (
+                  <div key={item} className="rounded-md border border-slate-200 bg-slate-50 p-4 font-semibold leading-6 text-slate-700">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : null}
         <div className="grid gap-5 md:grid-cols-3">
-          {projects.map((project) => (
+          {remainingProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>

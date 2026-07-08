@@ -70,11 +70,12 @@ The banking case study lives at `/projects/banking-data-platform` and is designe
 
 - Medallion architecture from banking source systems to bronze, silver, gold, analytics, and AI.
 - Executive KPIs for deposits, loans, net interest margin, complaints, risk, and AI readiness.
-- Product artifacts including personas, glossary, KPI definitions, roadmap, backlog, data quality rules, lineage examples, and governance assumptions.
+- Product artifacts including personas, executive stakeholders, glossary, KPI definitions, roadmap, backlog, acceptance criteria, success metrics, data quality rules, lineage examples, and governance assumptions.
 - Static synthetic seed data in `data/modernBankData.ts` and `public/modern-bank-data-platform/sample-data.json`.
 - A project README at `docs/modern-bank-data-platform/README.md`.
+- Screenshots in `public/modern-bank-data-platform/screenshots/`.
 
-The demo documents where CFPB Consumer Complaint Database, FRED economic indicators, FFIEC Call Report data, and synthetic banking data would plug in. The deployed portfolio intentionally uses synthetic numbers and no private or sensitive data.
+The demo documents where CFPB Consumer Complaint Database, FRED economic indicators, FFIEC Call Report data, and synthetic banking data would plug in. The deployed portfolio intentionally uses synthetic numbers and no private or sensitive data. It is now the featured homepage project because it best represents banking data product leadership, governance, architecture, AI readiness, and executive reporting.
 
 ## Deploy to Vercel
 

@@ -7,110 +7,216 @@ import {
   backlog,
   dataQualityRules,
   dataSources,
+  executiveInsights,
+  executiveStakeholders,
   glossary,
   governanceAssumptions,
+  kpiDefinitions,
   lineageExamples,
-  roadmap
+  productTradeoffs,
+  roadmap,
+  successMetrics
 } from "@/data/modernBankData";
 
+const caseStudyBlocks = [
+  {
+    title: "Problem",
+    body: "Regional and national banks often have strong reporting teams, but fragmented definitions across deposits, lending, complaints, risk, and digital channels make executive decisions slower than they should be."
+  },
+  {
+    title: "Business challenge",
+    body: "Leadership needs growth, margin, risk, complaint, and AI-readiness signals in one place, with enough governance evidence to trust the numbers in board, risk, and product investment conversations."
+  },
+  {
+    title: "Solution",
+    body: "Design a governed banking data product that moves source data through bronze, silver, gold, semantic, dashboard, and AI layers while surfacing quality, lineage, ownership, and policy controls directly in the user experience."
+  },
+  {
+    title: "Business impact",
+    body: "The demo shows how a bank could reduce metric disputes, spot emerging customer issues faster, prioritize data remediation, and prepare AI use cases on top of certified data products."
+  }
+];
+
 const personas = [
-  { role: "CFO / executive committee", need: "Certified deposits, loan growth, margin, and risk trends for board-ready decisions." },
-  { role: "Chief Data Officer", need: "Visible ownership, quality, lineage, and platform investment signals tied to business value." },
-  { role: "Risk and compliance leader", need: "Complaint, credit, liquidity, and operational risk indicators with explainable definitions." },
-  { role: "AI product manager", need: "Approved data products, consent-aware metadata, and reliable context for executive AI summaries." }
+  { role: "CFO / executive committee", need: "Board-ready deposit, loan, margin, and risk trends with certified definitions." },
+  { role: "Chief Data Officer", need: "Funding and prioritization signals for data products, ownership, lineage, and quality remediation." },
+  { role: "Director of Analytics", need: "Reusable semantic metrics and trusted marts for dashboards, analysis, and self-service reporting." },
+  { role: "Enterprise architect", need: "A clear reference architecture connecting operational systems, governance, security, analytics, and AI." },
+  { role: "AI product manager", need: "Approved data products, consent-aware metadata, and evidence-backed executive AI outputs." }
 ];
 
-const kpiDefinitions = [
-  { name: "Complaint rate", definition: "Consumer complaints per 10,000 active customers, grouped by product family and severity." },
-  { name: "AI readiness index", definition: "Weighted score for data quality, freshness, lineage, sensitivity tagging, and policy coverage." },
-  { name: "Certified KPI coverage", definition: "Share of executive metrics with approved definition, owner, source lineage, and refresh SLA." },
-  { name: "Loan growth", definition: "Period-over-period change in outstanding loan balances by product, segment, and risk grade." }
-];
-
-const risks = [
-  "Metric drift if dashboard logic is not governed through a semantic layer.",
-  "AI summaries could overstate certainty without confidence thresholds and human review.",
-  "Complaint themes may be biased by channel adoption, response practices, or missing product mapping.",
-  "Production use would require privacy engineering, retention controls, and regulator-ready audit evidence."
+const lessons = [
+  "Executive dashboards are only persuasive when metric definitions, owners, and exceptions are visible.",
+  "AI readiness is a data product outcome, not a model feature.",
+  "Complaint analytics becomes more useful when joined to product, customer, region, and operational ownership.",
+  "A portfolio demo should show the tradeoffs a real product team would make, not just ideal-state architecture."
 ];
 
 export default function ModernBankDataPlatformPage() {
   return (
     <main>
       <section className="mx-auto max-w-7xl px-5 py-14">
-        <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700">Enterprise banking data product</p>
-        <h1 className="max-w-5xl text-4xl font-bold tracking-tight text-slate-950 md:text-6xl">Modern Bank Data Platform</h1>
-        <p className="mt-5 max-w-4xl text-xl leading-9 text-slate-600">
-          A portfolio-ready demo for banking leaders: governed medallion architecture, executive KPIs, complaint analytics, credit risk signals,
-          AI-ready data foundations, and product artifacts that show how a platform becomes a decision-support capability.
-        </p>
-        <div className="mt-7 flex flex-wrap gap-3">
-          <a href="#dashboard" className="rounded-md bg-slate-950 px-5 py-3 text-sm font-bold text-white hover:bg-slate-800">
-            View Live Demo
-          </a>
-          <a
-            href="https://github.com/tededmunds/portfolio/blob/main/docs/modern-bank-data-platform/README.md"
-            className="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:border-slate-500"
-          >
-            GitHub README
-          </a>
-          <Link href="/projects" className="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:border-slate-500">
-            All Projects
-          </Link>
+        <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700">Featured banking data product</p>
+        <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
+          <div>
+            <h1 className="max-w-5xl text-4xl font-bold tracking-tight text-slate-950 md:text-6xl">Modern Bank Data Platform</h1>
+            <p className="mt-5 max-w-4xl text-xl leading-9 text-slate-600">
+              A consulting-style portfolio demo showing how a bank can turn fragmented source data into certified KPIs, governed AI insights,
+              executive decision support, and a practical data product roadmap.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href="#dashboard" className="rounded-md bg-slate-950 px-5 py-3 text-sm font-bold text-white hover:bg-slate-800">
+                View Dashboard
+              </a>
+              <a
+                href="https://github.com/tededmunds/portfolio/blob/main/docs/modern-bank-data-platform/README.md"
+                className="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:border-slate-500"
+              >
+                GitHub README
+              </a>
+              <Link href="/projects" className="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:border-slate-500">
+                All Projects
+              </Link>
+            </div>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-slate-500">Hiring signal</p>
+            <p className="mt-3 text-2xl font-bold tracking-tight text-slate-950">
+              Data product leadership for banking analytics, governance, and AI readiness.
+            </p>
+            <div className="mt-5 grid grid-cols-2 gap-3 text-sm">
+              {["Executive KPIs", "Medallion architecture", "Governance controls", "AI evidence layer"].map((item) => (
+                <span key={item} className="rounded-md border border-slate-200 bg-slate-50 p-3 font-semibold text-slate-700">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      <Section eyebrow="Executive overview" title="Business problem and value">
-        <div className="grid gap-5 md:grid-cols-3">
-          {[
-            ["Problem statement", "Banks need trusted, governed data products for growth, risk, complaints, and AI, but critical metrics often live across fragmented systems and inconsistent definitions."],
-            ["Business value", "The demo connects customer, account, loan, complaint, and macro data into board-ready KPIs with visible quality, lineage, governance, and AI readiness signals."],
-            ["Product positioning", "This is a data product management artifact: it frames platform health as an operating metric and shows what executives, risk teams, and AI teams need to make decisions."]
-          ].map(([title, body]) => (
-            <div key={title} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-lg font-bold text-slate-950">{title}</h2>
-              <p className="mt-3 leading-8 text-slate-600">{body}</p>
+      <Section eyebrow="Case study" title="Problem, solution, and impact">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {caseStudyBlocks.map((block) => (
+            <div key={block.title} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+              <h2 className="text-lg font-bold text-slate-950">{block.title}</h2>
+              <p className="mt-3 leading-8 text-slate-600">{block.body}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section eyebrow="Data sources" title="Public and synthetic data strategy">
+      <Section eyebrow="Data strategy" title="Public and synthetic source strategy">
         <DataTable
-          minWidth="760px"
+          minWidth="860px"
           columns={[
             { key: "name", label: "Dataset", render: (row: (typeof dataSources)[number]) => <strong className="text-slate-800">{row.name}</strong> },
-            { key: "use", label: "Demo use", render: (row: (typeof dataSources)[number]) => row.use },
-            { key: "mode", label: "Integration mode", render: (row: (typeof dataSources)[number]) => row.mode }
+            { key: "use", label: "Business use", render: (row: (typeof dataSources)[number]) => row.use },
+            { key: "mode", label: "Portfolio-safe mode", render: (row: (typeof dataSources)[number]) => row.mode }
           ]}
           rows={dataSources}
         />
       </Section>
 
-      <Section
-        eyebrow="Architecture"
-        title="Source systems to bronze, silver, gold, analytics, and AI"
-        description="The architecture is intentionally portfolio-friendly: static seed data powers the demo today, while the README documents how CFPB, FRED, FFIEC, and banking source feeds would plug into the same flow."
-      >
-        <BankArchitectureDiagram />
-      </Section>
+      <section id="architecture">
+        <Section
+          eyebrow="Architecture"
+          title="From source systems to certified metrics and AI copilot"
+          description="The architecture mirrors what a modern bank would need: medallion layers, semantic definitions, governance metadata, security controls, monitoring, and AI outputs grounded in trusted data."
+        >
+          <BankArchitectureDiagram />
+        </Section>
+      </section>
 
       <section id="dashboard">
         <Section
-          eyebrow="Dashboard experience"
-          title="Executive analytics and AI-ready data controls"
-          description="All numbers are realistic sample values generated for a public portfolio. No private customer, account, transaction, or institution data is included."
+          eyebrow="Dashboard"
+          title="Executive operating review"
+          description="A realistic executive dashboard with balance sheet trends, credit and complaint indicators, customer segments, data quality, and AI-generated insights backed by evidence."
         >
           <BankingDashboard />
         </Section>
       </section>
 
-      <Section eyebrow="Product artifacts" title="Personas, glossary, KPIs, roadmap, and backlog">
-        <div className="grid gap-5 lg:grid-cols-2">
-          <ArtifactPanel title="User personas" items={personas.map((persona) => `${persona.role}: ${persona.need}`)} />
-          <ArtifactPanel title="Sample roadmap" items={roadmap.map((item) => `${item.quarter} - ${item.theme}: ${item.work}`)} />
+      <section id="executive-insights">
+      <Section eyebrow="AI layer" title="Why AI needs clean, governed data">
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <h3 className="text-lg font-bold text-slate-950">Product decision</h3>
+            <p className="mt-3 leading-8 text-slate-600">
+              The AI copilot is intentionally positioned after the gold and semantic layers. Executive summaries should only use approved
+              data products with clear ownership, lineage, sensitivity classification, and quality thresholds.
+            </p>
+            <p className="mt-4 leading-8 text-slate-600">
+              That makes AI a trusted consumption experience rather than an ungoverned narrative generator.
+            </p>
+          </div>
+          <div className="grid gap-3">
+            {executiveInsights.map((insight) => (
+              <div key={insight.title} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <h3 className="font-bold text-slate-950">{insight.title}</h3>
+                  <span className="w-fit rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-800">{insight.confidence}</span>
+                </div>
+                <p className="mt-3 leading-7 text-slate-600">{insight.body}</p>
+                <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-slate-500">{insight.evidence}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+      </section>
+
+      <section id="governance">
+      <Section eyebrow="Governance" title="Enterprise controls that make the product credible">
+        <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
           <DataTable
-            minWidth="620px"
+            minWidth="1100px"
+            columns={[
+              { key: "rule", label: "Rule", render: (row: (typeof dataQualityRules)[number]) => <strong className="text-slate-800">{row.rule}</strong> },
+              { key: "cde", label: "CDE", render: (row: (typeof dataQualityRules)[number]) => row.cde },
+              { key: "domain", label: "Domain", render: (row: (typeof dataQualityRules)[number]) => row.domain },
+              { key: "current", label: "Current", render: (row: (typeof dataQualityRules)[number]) => row.current },
+              { key: "owner", label: "Owner", render: (row: (typeof dataQualityRules)[number]) => row.owner },
+              { key: "why", label: "Why it matters", render: (row: (typeof dataQualityRules)[number]) => row.why }
+            ]}
+            rows={dataQualityRules}
+          />
+          <ArtifactPanel title="Governance assumptions" items={governanceAssumptions.map((item) => `${item.topic}: ${item.detail}`)} />
+        </div>
+      </Section>
+      </section>
+
+      <Section eyebrow="Product management" title="Artifacts from an enterprise product team">
+        <div className="grid gap-5 lg:grid-cols-2">
+          <ArtifactPanel title="Executive stakeholders" items={executiveStakeholders.map((item) => `${item.group}: ${item.decision}`)} />
+          <ArtifactPanel title="User personas" items={personas.map((persona) => `${persona.role}: ${persona.need}`)} />
+          <DataTable
+            minWidth="720px"
+            columns={[
+              { key: "quarter", label: "Quarter", render: (row: (typeof roadmap)[number]) => <strong className="text-slate-800">{row.quarter}</strong> },
+              { key: "theme", label: "Theme", render: (row: (typeof roadmap)[number]) => row.theme },
+              { key: "work", label: "Scope", render: (row: (typeof roadmap)[number]) => row.work },
+              { key: "outcome", label: "Outcome", render: (row: (typeof roadmap)[number]) => row.outcome }
+            ]}
+            rows={roadmap}
+          />
+          <DataTable
+            minWidth="720px"
+            columns={[
+              { key: "priority", label: "Priority", render: (row: (typeof backlog)[number]) => <strong className="text-slate-800">{row.priority}</strong> },
+              { key: "story", label: "User story", render: (row: (typeof backlog)[number]) => row.story },
+              { key: "acceptance", label: "Acceptance criteria", render: (row: (typeof backlog)[number]) => row.acceptance }
+            ]}
+            rows={backlog}
+          />
+        </div>
+      </Section>
+
+      <Section eyebrow="Definitions" title="Glossary, KPIs, success metrics, and lineage">
+        <div className="grid gap-5 lg:grid-cols-2">
+          <DataTable
+            minWidth="760px"
             columns={[
               { key: "term", label: "Business glossary", render: (row: (typeof glossary)[number]) => <strong className="text-slate-800">{row.term}</strong> },
               { key: "definition", label: "Definition", render: (row: (typeof glossary)[number]) => row.definition }
@@ -118,34 +224,34 @@ export default function ModernBankDataPlatformPage() {
             rows={glossary}
           />
           <DataTable
-            minWidth="620px"
+            minWidth="760px"
             columns={[
               { key: "name", label: "KPI", render: (row: (typeof kpiDefinitions)[number]) => <strong className="text-slate-800">{row.name}</strong> },
-              { key: "definition", label: "Definition", render: (row: (typeof kpiDefinitions)[number]) => row.definition }
+              { key: "definition", label: "Definition", render: (row: (typeof kpiDefinitions)[number]) => row.definition },
+              { key: "owner", label: "Owner", render: (row: (typeof kpiDefinitions)[number]) => row.owner },
+              { key: "certification", label: "Status", render: (row: (typeof kpiDefinitions)[number]) => row.certification }
             ]}
             rows={kpiDefinitions}
           />
-        </div>
-        <div className="mt-5 grid gap-5 lg:grid-cols-2">
-          <ArtifactPanel title="Backlog and user stories" items={backlog} />
+          <DataTable
+            minWidth="760px"
+            columns={[
+              { key: "metric", label: "Success metric", render: (row: (typeof successMetrics)[number]) => <strong className="text-slate-800">{row.metric}</strong> },
+              { key: "current", label: "Current", render: (row: (typeof successMetrics)[number]) => row.current },
+              { key: "target", label: "Target", render: (row: (typeof successMetrics)[number]) => row.target },
+              { key: "signal", label: "Why it matters", render: (row: (typeof successMetrics)[number]) => row.signal }
+            ]}
+            rows={successMetrics}
+          />
           <ArtifactPanel title="Lineage examples" items={lineageExamples} />
         </div>
       </Section>
 
-      <Section eyebrow="Governance" title="Data quality rules, risks, and assumptions">
-        <DataTable
-          columns={[
-            { key: "rule", label: "Rule", render: (row: (typeof dataQualityRules)[number]) => <strong className="text-slate-800">{row.rule}</strong> },
-            { key: "domain", label: "Domain", render: (row: (typeof dataQualityRules)[number]) => row.domain },
-            { key: "threshold", label: "Target", render: (row: (typeof dataQualityRules)[number]) => row.threshold },
-            { key: "current", label: "Current", render: (row: (typeof dataQualityRules)[number]) => row.current },
-            { key: "owner", label: "Owner", render: (row: (typeof dataQualityRules)[number]) => row.owner }
-          ]}
-          rows={dataQualityRules}
-        />
-        <div className="mt-5 grid gap-5 lg:grid-cols-2">
-          <ArtifactPanel title="Risks and mitigations" items={risks} />
-          <ArtifactPanel title="Governance assumptions" items={governanceAssumptions} />
+      <Section eyebrow="Tradeoffs" title="Product decisions, lessons learned, and future roadmap">
+        <div className="grid gap-5 lg:grid-cols-3">
+          <ArtifactPanel title="Tradeoffs" items={productTradeoffs} />
+          <ArtifactPanel title="Lessons learned" items={lessons} />
+          <ArtifactPanel title="Future roadmap" items={roadmap.map((item) => `${item.quarter}: ${item.outcome}`)} />
         </div>
       </Section>
     </main>
