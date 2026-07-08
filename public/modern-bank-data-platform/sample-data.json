@@ -1,0 +1,23 @@
+{
+  "project": "Modern Bank Data Platform",
+  "data_classification": "public-safe synthetic demo data",
+  "reporting_period": "2026-06",
+  "executive_kpis": {
+    "total_deposits_usd_billions": 42.8,
+    "loan_portfolio_usd_billions": 31.4,
+    "net_interest_margin_percent": 3.42,
+    "complaints_per_10000_customers": 8.7,
+    "ai_readiness_index": 87
+  },
+  "sources": [
+    "CFPB Consumer Complaint Database integration placeholder",
+    "FRED economic indicators integration placeholder",
+    "FFIEC Call Report integration placeholder",
+    "Synthetic customer, account, transaction, and loan records"
+  ],
+  "notes": [
+    "No private customer data is included.",
+    "Values are realistic sample numbers for portfolio demonstration.",
+    "Live data connectors would run outside the public Vercel runtime and publish certified static snapshots."
+  ]
+}

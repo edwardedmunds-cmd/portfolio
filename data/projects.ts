@@ -3,9 +3,11 @@ export type Project = {
   title: string;
   eyebrow: string;
   summary: string;
+  problem?: string;
   sector: string;
   value: string;
   repo: string;
+  readme?: string;
   metrics: string[];
   stack: string[];
 };
@@ -25,15 +27,18 @@ export const projects: Project[] = [
   },
   {
     slug: "banking-data-platform",
-    title: "Banking Data Platform Demo",
-    eyebrow: "Enterprise data platform",
+    title: "Modern Bank Data Platform",
+    eyebrow: "Banking data product",
     summary:
-      "A governed banking data product concept for Customer 360, consent-aware analytics, compliance visibility, and AI readiness.",
+      "A polished banking data product demo for executive KPIs, complaint analytics, credit risk visibility, governance, and AI-ready data foundations.",
+    problem:
+      "Banks need trusted, governed data products for growth, risk, complaints, and AI, but critical metrics often live across fragmented systems and inconsistent definitions.",
     sector: "Banking and financial services",
-    value: "Frames data quality, lineage, policy exceptions, and AI readiness as operating metrics for banking leadership.",
-    repo: "https://github.com/tededmunds/banking-data-platform-demo",
-    metrics: ["92 trust score", "17 critical entities", "5 policy exceptions", "86 AI readiness"],
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Domain data model", "Policy controls"]
+    value: "Shows how data product management, medallion architecture, semantic metrics, and governance can turn banking data into executive decision support.",
+    repo: "https://github.com/tededmunds/portfolio/tree/main/app/projects/banking-data-platform",
+    readme: "https://github.com/tededmunds/portfolio/blob/main/docs/modern-bank-data-platform/README.md",
+    metrics: ["$42.8B deposits", "$31.4B loans", "8.7 complaints / 10K", "87 AI readiness"],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Synthetic banking data", "CFPB/FRED-ready", "Governance artifacts"]
   },
   {
     slug: "ai-data-catalog",
