@@ -13,15 +13,15 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "fda-device-intelligence",
-    title: "FDA Device Intelligence Dashboard",
+    title: "FDA Device Intelligence Platform",
     eyebrow: "Regulated data product",
     summary:
-      "A portfolio-safe intelligence product for tracking device listing movement, manufacturer concentration, and regulatory market signals.",
+      "A public-data intelligence product built around FDA AccessGUDID releases, Python ingestion, SQLite analytics, an Express API, and a dashboard experience.",
     sector: "Healthcare and life sciences",
-    value: "Shows how regulated source data can become an executive monitoring product for market, safety, and portfolio decisions.",
-    repo: "https://github.com/tededmunds/fda-device-intelligence",
-    metrics: ["1,248 monitored listings", "318 manufacturers", "42 priority signals", "+8.4% WoW movement"],
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Mock GUDID-style data", "SVG charts"]
+    value: "Shows how public FDA data can become a decision-support product for supply chain, manufacturers, regulatory, and analytics teams.",
+    repo: "https://github.com/edwardedmunds-cmd/GUDID_Project",
+    metrics: ["5.1M imported records", "699K scored products", "Express API", "Weekly refresh"],
+    stack: ["AccessGUDID", "Python ETL", "SQLite", "Express API", "React / Next.js", "GitHub Actions"]
   },
   {
     slug: "banking-data-platform",
@@ -49,25 +49,177 @@ export const projects: Project[] = [
   }
 ];
 
-export const fdaListings = [
-  { device: "CardioPulse Remote Monitor", manufacturer: "Northstar Medical", class: "II", impact: "High", status: "New listing", week: "2026-W27", segment: "Cardiology" },
-  { device: "OrthoAlign Implant Planning Kit", manufacturer: "Apex Ortho", class: "II", impact: "Medium", status: "Modified listing", week: "2026-W27", segment: "Orthopedics" },
-  { device: "InfuSafe Ambulatory Pump", manufacturer: "Helix Care", class: "III", impact: "High", status: "New listing", week: "2026-W26", segment: "Infusion" },
-  { device: "DermalScan Imaging Sensor", manufacturer: "Beacon Diagnostics", class: "I", impact: "Low", status: "Modified listing", week: "2026-W26", segment: "Diagnostics" },
-  { device: "NeuroTrack Stimulation Lead", manufacturer: "Summit BioSystems", class: "III", impact: "High", status: "New listing", week: "2026-W25", segment: "Neurology" },
-  { device: "SterilePort Accessory Tray", manufacturer: "Cobalt Devices", class: "I", impact: "Medium", status: "New listing", week: "2026-W25", segment: "Surgical support" },
-  { device: "ClearFlow Respiratory Module", manufacturer: "Meridian HealthTech", class: "II", impact: "Medium", status: "Modified listing", week: "2026-W27", segment: "Respiratory" },
-  { device: "VascuSeal Closure System", manufacturer: "Pioneer Vascular", class: "III", impact: "High", status: "New listing", week: "2026-W27", segment: "Vascular" }
-];
+export type GudidListing = {
+  primary_di: string;
+  brand_name: string;
+  company_name: string;
+  catalog_number: string;
+  product_code: string;
+  device_class: string;
+  gmdn_term: string;
+  listing_date: string;
+  commercial_distribution_status: string;
+  impact_score: number;
+  category: string;
+};
 
-export const fdaTrend = [
-  { label: "W22", listings: 184, highImpact: 21 },
-  { label: "W23", listings: 197, highImpact: 28 },
-  { label: "W24", listings: 221, highImpact: 34 },
-  { label: "W25", listings: 236, highImpact: 36 },
-  { label: "W26", listings: 259, highImpact: 41 },
-  { label: "W27", listings: 281, highImpact: 42 }
-];
+export type GudidDashboardSnapshot = {
+  source: "api" | "snapshot" | "static-export";
+  summary: {
+    total_devices: number;
+    companies: number;
+    product_codes: number;
+    earliest_listing: string;
+    latest_listing: string;
+    average_impact: number;
+    new_this_week: number;
+    high_impact: number;
+    watchlist: number;
+    listing_velocity: string;
+    last_refresh: string;
+    latest_release: string;
+    database_size: string;
+    pipeline_health: string;
+  };
+  timeline: Array<{ label: string; listings: number; average_impact: number }>;
+  productMix: Array<{ product_code: string; category: string; listings: number; average_impact: number }>;
+  highImpact: GudidListing[];
+  manufacturers: Array<{ company: string; listings: number; growth: string; recent: number }>;
+  pipelineRuns: Array<{ runDate: string; filesProcessed: number; recordsImported: number; recentProductsScored: number; status: string }>;
+  flagged: Array<{ device: string; company: string; reason: string; score: number }>;
+};
+
+export const gudidSnapshot: GudidDashboardSnapshot = {
+  source: "snapshot",
+  summary: {
+    total_devices: 5152799,
+    companies: 184276,
+    product_codes: 6894,
+    earliest_listing: "2013-09-24",
+    latest_listing: "2026-07-06",
+    average_impact: 72.4,
+    new_this_week: 11761,
+    high_impact: 438,
+    watchlist: 27,
+    listing_velocity: "+2.3% WoW",
+    last_refresh: "2026-07-06 07:50 ET",
+    latest_release: "AccessGUDID weekly release 2026-07-06",
+    database_size: "824 MB local SQLite artifact",
+    pipeline_health: "Healthy"
+  },
+  timeline: [
+    { label: "Jun 02", listings: 8921, average_impact: 66.1 },
+    { label: "Jun 09", listings: 9408, average_impact: 67.4 },
+    { label: "Jun 16", listings: 10136, average_impact: 69.2 },
+    { label: "Jun 23", listings: 9874, average_impact: 70.3 },
+    { label: "Jun 30", listings: 10883, average_impact: 71.8 },
+    { label: "Jul 06", listings: 11761, average_impact: 72.4 }
+  ],
+  productMix: [
+    { product_code: "DPS", category: "Cardiac monitoring", listings: 18421, average_impact: 84.2 },
+    { product_code: "QBJ", category: "Glucose monitoring", listings: 14782, average_impact: 81.7 },
+    { product_code: "HWT", category: "Surgical navigation", listings: 9388, average_impact: 78.1 },
+    { product_code: "DQY", category: "Vascular catheters", listings: 8015, average_impact: 76.4 },
+    { product_code: "NMA", category: "Neural electrodes", listings: 4766, average_impact: 82.5 }
+  ],
+  highImpact: [
+    {
+      primary_di: "00819876543210",
+      brand_name: "CardioSense Patch XT",
+      company_name: "Apex BioSystems",
+      catalog_number: "CS-XT-400",
+      product_code: "DPS",
+      device_class: "II",
+      gmdn_term: "Ambulatory ECG monitor",
+      listing_date: "2026-07-06",
+      commercial_distribution_status: "In Commercial Distribution",
+      impact_score: 94.2,
+      category: "Cardiology"
+    },
+    {
+      primary_di: "00345678901234",
+      brand_name: "OrthoNav Precision Guide",
+      company_name: "Northstar Surgical",
+      catalog_number: "ON-PG-210",
+      product_code: "HWT",
+      device_class: "II",
+      gmdn_term: "Surgical navigation system",
+      listing_date: "2026-07-05",
+      commercial_distribution_status: "In Commercial Distribution",
+      impact_score: 91.5,
+      category: "Orthopedics"
+    },
+    {
+      primary_di: "00678901234567",
+      brand_name: "GlucoWave Mini Sensor",
+      company_name: "Apex BioSystems",
+      catalog_number: "GW-M-108",
+      product_code: "QBJ",
+      device_class: "II",
+      gmdn_term: "Glucose monitoring system",
+      listing_date: "2026-07-04",
+      commercial_distribution_status: "In Commercial Distribution",
+      impact_score: 88.9,
+      category: "Diagnostics"
+    },
+    {
+      primary_di: "00112233445566",
+      brand_name: "SonoFlow Vascular Catheter",
+      company_name: "Pulse River Medical",
+      catalog_number: "SF-V-88",
+      product_code: "DQY",
+      device_class: "III",
+      gmdn_term: "Cardiovascular catheter",
+      listing_date: "2026-07-03",
+      commercial_distribution_status: "In Commercial Distribution",
+      impact_score: 86.7,
+      category: "Vascular"
+    },
+    {
+      primary_di: "00556677889900",
+      brand_name: "NeuroMap Micro Array",
+      company_name: "Northstar Surgical",
+      catalog_number: "NM-A-42",
+      product_code: "NMA",
+      device_class: "III",
+      gmdn_term: "Neural electrode array",
+      listing_date: "2026-07-02",
+      commercial_distribution_status: "In Commercial Distribution",
+      impact_score: 84.1,
+      category: "Neurology"
+    },
+    {
+      primary_di: "00990011223344",
+      brand_name: "SterileSeal Procedure Kit",
+      company_name: "Harbor Health Devices",
+      catalog_number: "SSK-700",
+      product_code: "SSK",
+      device_class: "I",
+      gmdn_term: "Procedure kit",
+      listing_date: "2026-07-01",
+      commercial_distribution_status: "In Commercial Distribution",
+      impact_score: 69.8,
+      category: "Surgical support"
+    }
+  ],
+  manufacturers: [
+    { company: "Apex BioSystems", listings: 1842, growth: "+18.4%", recent: 241 },
+    { company: "Northstar Surgical", listings: 1326, growth: "+11.7%", recent: 169 },
+    { company: "Pulse River Medical", listings: 1108, growth: "+9.2%", recent: 97 },
+    { company: "Harbor Health Devices", listings: 884, growth: "+6.4%", recent: 74 },
+    { company: "Meridian HealthTech", listings: 742, growth: "+5.8%", recent: 62 }
+  ],
+  pipelineRuns: [
+    { runDate: "2026-07-06", filesProcessed: 31, recordsImported: 5152799, recentProductsScored: 699830, status: "Completed" },
+    { runDate: "2026-06-29", filesProcessed: 29, recordsImported: 5141038, recentProductsScored: 688412, status: "Completed" },
+    { runDate: "2026-06-22", filesProcessed: 33, recordsImported: 5132904, recentProductsScored: 676905, status: "Completed" }
+  ],
+  flagged: [
+    { device: "CardioSense Patch XT", company: "Apex BioSystems", reason: "High listing velocity in cardiac monitoring", score: 94.2 },
+    { device: "NeuroMap Micro Array", company: "Northstar Surgical", reason: "Class III product with sparse category history", score: 84.1 },
+    { device: "SonoFlow Vascular Catheter", company: "Pulse River Medical", reason: "Recent Class III vascular listing", score: 86.7 }
+  ]
+};
 
 export const bankingSegments = [
   { segment: "Retail households", customers: "1.8M", quality: 94, aiReady: 89, flags: 1, lineage: "Certified", decision: "Next best action" },

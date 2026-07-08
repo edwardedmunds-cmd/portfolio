@@ -1,0 +1,36 @@
+name: Refresh GUDID Snapshot
+
+on:
+  schedule:
+    - cron: "20 11 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out portfolio
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Download latest GUDID sample export
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/edwardedmunds-cmd/GUDID_Project/main/docs/sample_data.json -o /tmp/gudid-sample.json
+
+      - name: Export portfolio dashboard snapshot
+        run: npm run export:gudid-snapshot -- /tmp/gudid-sample.json
+
+      - name: Commit updated snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/gudid-dashboard.json
+          git diff --cached --quiet || git commit -m "Refresh GUDID dashboard snapshot"
+          git push

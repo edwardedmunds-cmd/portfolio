@@ -15,6 +15,9 @@ type ProjectDetailProps = {
   pipeline: string;
   stack: string[];
   decisions: string[];
+  challenges?: string[];
+  lessons?: string[];
+  future?: string[];
   hiringSignal: string;
 };
 
@@ -30,6 +33,9 @@ export function ProjectDetail({
   pipeline,
   stack,
   decisions,
+  challenges = [],
+  lessons = [],
+  future = [],
   hiringSignal
 }: ProjectDetailProps) {
   return (
@@ -48,20 +54,20 @@ export function ProjectDetail({
         </div>
       </section>
 
-      <Section eyebrow="Case study" title="Business problem and product outcome">
+      <Section eyebrow="Case study" title="Business Problem and Product Vision">
         <div className="grid gap-5 md:grid-cols-2">
           <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-bold text-slate-950">Business problem</h2>
+            <h2 className="text-lg font-bold text-slate-950">Business Problem</h2>
             <p className="mt-3 leading-8 text-slate-600">{problem}</p>
           </div>
           <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-bold text-slate-950">Product outcome</h2>
+            <h2 className="text-lg font-bold text-slate-950">Product Vision</h2>
             <p className="mt-3 leading-8 text-slate-600">{outcome}</p>
           </div>
         </div>
       </Section>
 
-      <Section eyebrow="Users" title="Users and stakeholders">
+      <Section eyebrow="Users" title="Product Users">
         <div className="grid gap-3 md:grid-cols-4">
           {stakeholders.map((stakeholder) => (
             <div key={stakeholder} className="rounded-lg border border-slate-200 bg-white p-5 font-semibold text-slate-800 shadow-sm">
@@ -73,17 +79,17 @@ export function ProjectDetail({
 
       <Section
         eyebrow="Live product"
-        title="Dashboard product surface"
+        title="Interactive Dashboard"
         description="All data is fictional and portfolio-safe. The dashboard is designed to show KPI hierarchy, trust signals, filtering, and the kind of product experience a regulated enterprise team could use in working sessions."
       >
         {dashboard}
       </Section>
 
-      <Section eyebrow="Architecture" title="How the product would be organized">
+      <Section eyebrow="Architecture" title="Architecture">
         <ArchitectureDiagram nodes={architecture} />
       </Section>
 
-      <Section eyebrow="Data model" title="Data model and pipeline explanation">
+      <Section eyebrow="Technical Stack" title="Data model, pipeline, and implementation">
         <div className="grid gap-5 md:grid-cols-[1.1fr_0.9fr]">
           <p className="rounded-lg border border-slate-200 bg-white p-6 leading-8 text-slate-600 shadow-sm">{pipeline}</p>
           <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
@@ -99,7 +105,7 @@ export function ProjectDetail({
         </div>
       </Section>
 
-      <Section eyebrow="Product decisions" title="What I optimized for">
+      <Section eyebrow="Data Product Decisions" title="Governance, UX, and architecture choices">
         <div className="grid gap-4 md:grid-cols-3">
           {decisions.map((decision) => (
             <div key={decision} className="rounded-lg border border-slate-200 bg-white p-5 leading-7 text-slate-600 shadow-sm">
@@ -109,7 +115,32 @@ export function ProjectDetail({
         </div>
       </Section>
 
-      <Section eyebrow="Hiring signal" title="What this demonstrates to hiring managers">
+      {challenges.length || lessons.length || future.length ? (
+        <Section eyebrow="Execution Notes" title="Challenges solved, lessons learned, and future enhancements">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+              <h3 className="font-bold text-slate-950">Challenges Solved</h3>
+              <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-600">
+                {challenges.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+            <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+              <h3 className="font-bold text-slate-950">Lessons Learned</h3>
+              <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-600">
+                {lessons.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+            <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+              <h3 className="font-bold text-slate-950">Future Enhancements</h3>
+              <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-600">
+                {future.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+          </div>
+        </Section>
+      ) : null}
+
+      <Section eyebrow="What This Demonstrates" title="What this demonstrates to hiring managers">
         <p className="max-w-4xl rounded-lg border border-slate-200 bg-white p-6 text-lg leading-8 text-slate-600 shadow-sm">{hiringSignal}</p>
       </Section>
 

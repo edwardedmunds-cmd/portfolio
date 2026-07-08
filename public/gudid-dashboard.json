@@ -1,0 +1,246 @@
+{
+  "source": "static-export",
+  "generatedAt": "2026-07-08T18:54:53.443Z",
+  "summary": {
+    "total_devices": 5152799,
+    "companies": 184276,
+    "product_codes": 6894,
+    "earliest_listing": "2013-09-24",
+    "latest_listing": "2026-07-06",
+    "average_impact": 72.4,
+    "new_this_week": 11761,
+    "high_impact": 438,
+    "watchlist": 27,
+    "listing_velocity": "+2.3% WoW",
+    "last_refresh": "2026-07-06 07:50 ET",
+    "latest_release": "AccessGUDID weekly release",
+    "database_size": "SQLite analytics artifact",
+    "pipeline_health": "Healthy"
+  },
+  "timeline": [
+    {
+      "label": "Jun 02",
+      "listings": 8921,
+      "average_impact": 66.1
+    },
+    {
+      "label": "Jun 09",
+      "listings": 9408,
+      "average_impact": 67.4
+    },
+    {
+      "label": "Jun 16",
+      "listings": 10136,
+      "average_impact": 69.2
+    },
+    {
+      "label": "Jun 23",
+      "listings": 9874,
+      "average_impact": 70.3
+    },
+    {
+      "label": "Jun 30",
+      "listings": 10883,
+      "average_impact": 71.8
+    },
+    {
+      "label": "Jul 06",
+      "listings": 11761,
+      "average_impact": 72.4
+    }
+  ],
+  "productMix": [
+    {
+      "product_code": "DPS",
+      "category": "Cardiac monitoring",
+      "listings": 18421,
+      "average_impact": 84.2
+    },
+    {
+      "product_code": "QBJ",
+      "category": "Glucose monitoring",
+      "listings": 14782,
+      "average_impact": 81.7
+    },
+    {
+      "product_code": "HWT",
+      "category": "Surgical navigation",
+      "listings": 9388,
+      "average_impact": 78.1
+    },
+    {
+      "product_code": "DQY",
+      "category": "Vascular catheters",
+      "listings": 8015,
+      "average_impact": 76.4
+    },
+    {
+      "product_code": "NMA",
+      "category": "Neural electrodes",
+      "listings": 4766,
+      "average_impact": 82.5
+    }
+  ],
+  "highImpact": [
+    {
+      "primary_di": "00819876543210",
+      "brand_name": "CardioSense Patch XT",
+      "company_name": "Apex BioSystems",
+      "catalog_number": "CS-XT-400",
+      "product_code": "DPS",
+      "device_class": "II",
+      "gmdn_term": "Ambulatory ECG monitor",
+      "listing_date": "2026-06-21",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "impact_score": 94.2,
+      "category": "Cardiology"
+    },
+    {
+      "primary_di": "00345678901234",
+      "brand_name": "OrthoNav Precision Guide",
+      "company_name": "Northstar Surgical",
+      "catalog_number": "ON-PG-210",
+      "product_code": "HWT",
+      "device_class": "II",
+      "gmdn_term": "Surgical navigation system",
+      "listing_date": "2026-06-20",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "impact_score": 91.5,
+      "category": "Orthopedics"
+    },
+    {
+      "primary_di": "00678901234567",
+      "brand_name": "GlucoWave Mini Sensor",
+      "company_name": "Apex BioSystems",
+      "catalog_number": "GW-M-108",
+      "product_code": "QBJ",
+      "device_class": "II",
+      "gmdn_term": "Glucose monitoring system",
+      "listing_date": "2026-06-19",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "impact_score": 88.9,
+      "category": "Diagnostics"
+    },
+    {
+      "primary_di": "00112233445566",
+      "brand_name": "SonoFlow Vascular Catheter",
+      "company_name": "Pulse River Medical",
+      "catalog_number": "SF-V-88",
+      "product_code": "DQY",
+      "device_class": "III",
+      "gmdn_term": "Cardiovascular catheter",
+      "listing_date": "2026-06-18",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "impact_score": 86.7,
+      "category": "Vascular"
+    },
+    {
+      "primary_di": "00990011223344",
+      "brand_name": "SterileSeal Procedure Kit",
+      "company_name": "Harbor Health Devices",
+      "catalog_number": "SSK-700",
+      "product_code": "SSK",
+      "device_class": "I",
+      "gmdn_term": "Procedure kit",
+      "listing_date": "2026-06-17",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "impact_score": 69.8,
+      "category": "Surgical support"
+    },
+    {
+      "primary_di": "00556677889900",
+      "brand_name": "NeuroMap Micro Array",
+      "company_name": "Northstar Surgical",
+      "catalog_number": "NM-A-42",
+      "product_code": "NMA",
+      "device_class": "III",
+      "gmdn_term": "Neural electrode array",
+      "listing_date": "2026-06-16",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "impact_score": 84.1,
+      "category": "Neurology"
+    }
+  ],
+  "manufacturers": [
+    {
+      "company": "Apex BioSystems",
+      "listings": 1842,
+      "growth": "+18.4%",
+      "recent": 241
+    },
+    {
+      "company": "Northstar Surgical",
+      "listings": 1326,
+      "growth": "+11.7%",
+      "recent": 169
+    },
+    {
+      "company": "Pulse River Medical",
+      "listings": 1108,
+      "growth": "+9.2%",
+      "recent": 97
+    },
+    {
+      "company": "Harbor Health Devices",
+      "listings": 884,
+      "growth": "+6.4%",
+      "recent": 74
+    },
+    {
+      "company": "Meridian HealthTech",
+      "listings": 742,
+      "growth": "+5.8%",
+      "recent": 62
+    }
+  ],
+  "pipelineRuns": [
+    {
+      "runDate": "2026-07-06",
+      "filesProcessed": 31,
+      "recordsImported": 5152799,
+      "recentProductsScored": 699830,
+      "status": "Completed"
+    },
+    {
+      "runDate": "2026-06-29",
+      "filesProcessed": 29,
+      "recordsImported": 5141038,
+      "recentProductsScored": 688412,
+      "status": "Completed"
+    },
+    {
+      "runDate": "2026-06-22",
+      "filesProcessed": 33,
+      "recordsImported": 5132904,
+      "recentProductsScored": 676905,
+      "status": "Completed"
+    },
+    {
+      "runDate": "2026-06-15",
+      "filesProcessed": 28,
+      "recordsImported": 5129241,
+      "recentProductsScored": 699830,
+      "status": "Completed"
+    }
+  ],
+  "flagged": [
+    {
+      "device": "CardioSense Patch XT",
+      "company": "Apex BioSystems",
+      "reason": "High listing velocity in cardiac monitoring",
+      "score": 94.2
+    },
+    {
+      "device": "NeuroMap Micro Array",
+      "company": "Northstar Surgical",
+      "reason": "Class III product with sparse category history",
+      "score": 84.1
+    },
+    {
+      "device": "SonoFlow Vascular Catheter",
+      "company": "Pulse River Medical",
+      "reason": "Recent Class III vascular listing",
+      "score": 86.7
+    }
+  ]
+}

@@ -24,13 +24,13 @@ export function BarChart({ data, max, secondaryLabel }: BarChartProps) {
           <div key={item.label} className="flex h-full flex-1 flex-col justify-end gap-2">
             <div className="flex flex-1 items-end gap-1">
               <div
-                className="w-full rounded-t bg-blue-600"
+                className="w-full rounded-t bg-blue-600 transition-all duration-700"
                 style={{ height: `${Math.max(8, (item.value / ceiling) * 100)}%` }}
                 title={`${item.label}: ${item.value}`}
               />
               {item.secondary ? (
                 <div
-                  className="w-2 rounded-t bg-teal-500"
+                  className="w-2 rounded-t bg-teal-500 transition-all duration-700"
                   style={{ height: `${Math.max(8, (item.secondary / ceiling) * 100)}%` }}
                   title={`${item.label}: ${item.secondary}`}
                 />
