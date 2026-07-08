@@ -46,14 +46,14 @@ cp .env.example .env.local
 
 `NEXT_PUBLIC_SITE_URL` is used for metadata, sitemap, robots, and social sharing URLs. Do not add secrets to `.env.example`.
 
-`NEXT_PUBLIC_GUDID_API_URL` is optional. When set locally, the FDA Device Intelligence dashboard attempts to load the GUDID Express API first. If the API is unavailable, the dashboard falls back to the static JSON export at `public/gudid-dashboard.json`, which keeps Vercel deployments fast and reliable.
+`NEXT_PUBLIC_GUDID_API_URL` is optional. When set locally, the FDA Device Intelligence dashboard attempts to load the GUDID Express API first. If the API is unavailable, the dashboard falls back to the static JSON export served through `/api/gudid-dashboard`, which keeps Vercel deployments fast and reliable.
 
 ## GUDID Dashboard Data Modes
 
 The FDA case study supports three data modes:
 
 - **Live local API**: start the GUDID Express API from `GUDID_Project` at `http://127.0.0.1:8787`.
-- **Static Vercel snapshot**: the deployed portfolio reads `/gudid-dashboard.json`.
+- **Static Vercel snapshot**: the deployed portfolio reads `/api/gudid-dashboard`, backed by `public/gudid-dashboard.json`.
 - **Bundled fallback**: the React component includes a final safe fallback if neither source is reachable.
 
 Refresh the static snapshot manually:

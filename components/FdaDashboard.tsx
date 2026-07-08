@@ -108,7 +108,7 @@ export function FdaDashboard() {
         setApiStatus("live");
       })
       .catch(() => {
-        fetch("/gudid-dashboard.json", { cache: "no-store" })
+        fetch("/api/gudid-dashboard", { cache: "no-store" })
           .then((response) => {
             if (!response.ok) throw new Error("Static snapshot unavailable");
             return response.json();

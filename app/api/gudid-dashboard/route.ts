@@ -1,4 +1,4 @@
-import snapshot from "../../public/gudid-dashboard.json";
+import snapshot from "../../../public/gudid-dashboard.json";
 
 export const dynamic = "force-static";
 
