@@ -8,6 +8,7 @@ import { FilterBar } from "@/components/FilterBar";
 import { InsightCallout } from "@/components/InsightCallout";
 import { LineageDiagram } from "@/components/LineageDiagram";
 import { MetricCard } from "@/components/MetricCard";
+import { ProductIntelligencePanel } from "@/components/ProductIntelligencePanel";
 import { StatusBadge } from "@/components/StatusBadge";
 import { gudidSnapshot, type GudidDashboardSnapshot, type GudidListing } from "@/data/projects";
 
@@ -94,6 +95,7 @@ export function FdaDashboard() {
   });
   const [sortKey, setSortKey] = useState<"impact_score" | "listing_date" | "company_name">("impact_score");
   const [page, setPage] = useState(1);
+  const [selectedDevice, setSelectedDevice] = useState<GudidListing | null>(gudidSnapshot.highImpact[0] ?? null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -160,6 +162,17 @@ export function FdaDashboard() {
   const pageSize = 4;
   const pageCount = Math.max(1, Math.ceil(filteredListings.length / pageSize));
   const visibleListings = filteredListings.slice((page - 1) * pageSize, page * pageSize);
+
+  useEffect(() => {
+    if (!filteredListings.length) {
+      setSelectedDevice(null);
+      return;
+    }
+    const selectedStillVisible = selectedDevice ? filteredListings.some((item) => item.primary_di === selectedDevice.primary_di) : false;
+    if (!selectedStillVisible) {
+      setSelectedDevice(filteredListings[0]);
+    }
+  }, [filteredListings, selectedDevice]);
 
   const statusTone = apiStatus === "live" ? "green" : apiStatus === "checking" ? "amber" : "blue";
   const statusText =
@@ -259,6 +272,9 @@ export function FdaDashboard() {
         <DataTable<GudidListing>
           minWidth="1120px"
           rows={visibleListings}
+          getRowKey={(row) => row.primary_di}
+          onRowClick={setSelectedDevice}
+          selectedRowKey={selectedDevice?.primary_di}
           columns={[
             { key: "device", label: "Device", render: (row) => <div><p className="font-bold text-slate-950">{row.brand_name}</p><p className="text-xs text-slate-500">{row.gmdn_term}</p></div> },
             { key: "company", label: "Manufacturer", render: (row) => row.company_name },
@@ -277,6 +293,9 @@ export function FdaDashboard() {
           <button className="rounded-md border border-slate-300 px-3 py-2 font-semibold disabled:opacity-40" disabled={page >= pageCount} onClick={() => setPage(page + 1)}>
             Next
           </button>
+        </div>
+        <div className="mt-5">
+          <ProductIntelligencePanel device={selectedDevice} />
         </div>
       </div>
 

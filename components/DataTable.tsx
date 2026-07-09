@@ -2,9 +2,12 @@ type DataTableProps<T> = {
   columns: Array<{ key: string; label: string; render: (row: T) => React.ReactNode }>;
   rows: T[];
   minWidth?: string;
+  getRowKey?: (row: T, index: number) => string;
+  onRowClick?: (row: T) => void;
+  selectedRowKey?: string;
 };
 
-export function DataTable<T>({ columns, rows, minWidth = "900px" }: DataTableProps<T>) {
+export function DataTable<T>({ columns, rows, minWidth = "900px", getRowKey, onRowClick, selectedRowKey }: DataTableProps<T>) {
   return (
     <div className="table-scroll rounded-lg border border-slate-200 bg-white shadow-sm">
       <table className="w-full border-collapse text-left text-sm" style={{ minWidth }}>
@@ -19,7 +22,25 @@ export function DataTable<T>({ columns, rows, minWidth = "900px" }: DataTablePro
         </thead>
         <tbody>
           {rows.map((row, index) => (
-            <tr key={index} className="border-t border-slate-200 transition hover:bg-slate-50">
+            <tr
+              key={getRowKey ? getRowKey(row, index) : index}
+              tabIndex={onRowClick ? 0 : undefined}
+              aria-selected={selectedRowKey && getRowKey ? selectedRowKey === getRowKey(row, index) : undefined}
+              onClick={onRowClick ? () => onRowClick(row) : undefined}
+              onKeyDown={
+                onRowClick
+                  ? (event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        onRowClick(row);
+                      }
+                    }
+                  : undefined
+              }
+              className={`border-t border-slate-200 transition hover:bg-slate-50 ${
+                onRowClick ? "cursor-pointer focus:bg-blue-50 focus:outline-none" : ""
+              } ${selectedRowKey && getRowKey && selectedRowKey === getRowKey(row, index) ? "bg-blue-50 ring-1 ring-inset ring-blue-200" : ""}`}
+            >
               {columns.map((column) => (
                 <td key={column.key} className="px-4 py-3 align-top text-slate-600">
                   {column.render(row)}

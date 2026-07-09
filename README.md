@@ -64,6 +64,15 @@ npm run export:gudid-snapshot -- ../GUDID_Project/docs/sample_data.json
 
 The GitHub workflow in `.github/workflows/gudid-snapshot.yml` also refreshes the static snapshot weekly from the public `GUDID_Project` sample export and commits changes to `main`, which triggers Vercel after GitHub integration is enabled.
 
+The FDA dashboard keeps the original explorer workflow intact: KPI cards, search, filters, trend chart, manufacturer activity ranking, sorting, pagination, and the Listing Explorer remain the primary experience. The dashboard now adds a source-aware **Product Intelligence Panel** below the Listing Explorer. Selecting a device row updates the panel with:
+
+- AccessGUDID/FDA listing summary fields.
+- Demo FDA recall intelligence where available.
+- Public company/manufacturer context where available.
+- AI-generated interpretation clearly labeled as generated from source-aware demo data.
+
+Only a limited set of portfolio demo products include enriched recall or company context. Listings without enrichment fall back to an FDA-only summary based on available AccessGUDID-style fields. The panel is structured so live FDA recall, SEC EDGAR, manufacturer website, or AI enrichment APIs can be added later without replacing the original dashboard functionality.
+
 ## Modern Bank Data Platform Demo
 
 The banking case study lives at `/projects/banking-data-platform` and is designed as a public-safe executive data product demo. It includes:
