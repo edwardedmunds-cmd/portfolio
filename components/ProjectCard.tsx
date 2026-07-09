@@ -7,11 +7,6 @@ export function ProjectCard({ project }: { project: Project }) {
       <p className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700">{project.eyebrow}</p>
       <h3 className="mt-3 text-xl font-bold text-slate-950">{project.title}</h3>
       <p className="mt-3 flex-1 leading-7 text-slate-600">{project.summary}</p>
-      {project.problem ? (
-        <p className="mt-4 rounded-md border border-amber-200 bg-amber-50 p-3 text-sm font-semibold leading-6 text-amber-950">
-          {project.problem}
-        </p>
-      ) : null}
       <p className="mt-4 rounded-md border border-slate-200 bg-slate-50 p-3 text-sm font-semibold leading-6 text-slate-700">{project.value}</p>
       <div className="mt-4 flex flex-wrap gap-2">
         {project.stack.slice(0, 4).map((item) => (
@@ -36,6 +31,9 @@ export function ProjectCard({ project }: { project: Project }) {
             GitHub README
           </a>
         ) : null}
+        <a href={project.repo} className="text-slate-600 hover:text-slate-950">
+          GitHub repo
+        </a>
       </div>
     </div>
   );

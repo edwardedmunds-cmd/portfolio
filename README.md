@@ -4,14 +4,14 @@ Professional portfolio website for `tededmunds.com`, built with Next.js App Rout
 
 ## Positioning
 
-This site is designed as an executive data product and analytics leadership portfolio for job searches in banking, insurance, healthcare, and enterprise data product roles. It highlights:
+This site is designed as an executive data product and analytics leadership portfolio for healthcare-first job searches, with banking, insurance, and enterprise data product roles as adjacent regulated-industry fits. It highlights:
 
 - Enterprise analytics platforms
 - AI-ready data products
 - Executive dashboards
 - Secure multi-tenant data architecture
 - Governance, lineage, and catalog experiences
-- Regulated-industry data product leadership
+- Healthcare and regulated-industry data product leadership
 
 All dashboard content uses fictional, portfolio-safe sample data.
 
@@ -75,7 +75,7 @@ The banking case study lives at `/projects/banking-data-platform` and is designe
 - A project README at `docs/modern-bank-data-platform/README.md`.
 - Screenshots in `public/modern-bank-data-platform/screenshots/`.
 
-The demo documents where CFPB Consumer Complaint Database, FRED economic indicators, FFIEC Call Report data, and synthetic banking data would plug in. The deployed portfolio intentionally uses synthetic numbers and no private or sensitive data. It is now the featured homepage project because it best represents banking data product leadership, governance, architecture, AI readiness, and executive reporting.
+The demo documents where CFPB Consumer Complaint Database, FRED economic indicators, FFIEC Call Report data, and synthetic banking data would plug in. The deployed portfolio intentionally uses synthetic numbers and no private or sensitive data.
 
 ## Deploy to Vercel
 
@@ -117,6 +117,7 @@ Public contact/profile URLs are centralized in `lib/site.ts`:
 - Email
 - LinkedIn
 - GitHub
+- Resume PDF
 - Site URL fallback
 
 Project repository URLs live in `data/projects.ts`.
@@ -125,5 +126,5 @@ Project repository URLs live in `data/projects.ts`.
 
 - Confirm the LinkedIn and GitHub URLs in `lib/site.ts`.
 - Confirm project repository URLs in `data/projects.ts`.
-- Add a resume PDF only if you want one publicly downloadable, then link it intentionally.
+- Replace `public/resume/ted-edmunds-resume.pdf` when the public resume is updated.
 - Tune case-study copy for specific job searches or target industries.

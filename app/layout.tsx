@@ -7,14 +7,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Ted Edmunds | Data Product Leader",
   description:
-    "Ted Edmunds portfolio for enterprise analytics, AI-ready data products, executive dashboards, governance, and regulated-industry data product leadership across banking, insurance, and healthcare.",
+    "Ted Edmunds portfolio for healthcare data product leadership, enterprise analytics, AI-ready data products, executive dashboards, governance, and regulated cloud data platforms.",
   alternates: {
     canonical: "/"
   },
   openGraph: {
     title: "Ted Edmunds | Data Product Leader",
     description:
-      "Enterprise analytics, AI-ready data products, executive dashboards, governance, and regulated-industry data product leadership.",
+      "Healthcare data product leadership, enterprise analytics, AI-ready data products, executive dashboards, governance, and regulated cloud data platforms.",
     url: SITE_URL,
     siteName: "Ted Edmunds Portfolio",
     locale: "en_US",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ted Edmunds | Data Product Leader",
     description:
-      "Enterprise analytics, AI-ready data products, executive dashboards, governance, and regulated-industry data product leadership.",
+      "Healthcare data product leadership, enterprise analytics, AI-ready data products, executive dashboards, governance, and regulated cloud data platforms.",
     images: ["/opengraph-image"]
   }
 };
@@ -41,8 +41,7 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
   { href: "/about", label: "About" },
-  { href: "/resume", label: "Resume" },
-  { href: "/contact", label: "Contact" }
+  { href: "/resume", label: "Resume" }
 ];
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -65,7 +64,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               href="/contact"
               className="rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800"
             >
-              Discuss a role
+              Contact
             </Link>
           </div>
         </header>

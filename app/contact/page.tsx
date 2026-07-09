@@ -12,7 +12,7 @@ export default function ContactPage() {
       </section>
       <Section
         title="Contact points"
-        description="Best fit: leadership roles involving banking, insurance, healthcare, enterprise analytics, AI-ready data platforms, governance, and executive dashboard product work."
+        description="Best fit: healthcare data product and analytics leadership roles involving cloud data platforms, governance, executive dashboards, AI-ready data products, and regulated enterprise delivery. Banking and insurance are adjacent examples of the same operating model."
       >
         <div className="grid gap-5 md:grid-cols-3">
           {[

@@ -11,7 +11,7 @@ export default function AboutPage() {
       </section>
       <Section
         title="Leadership focus"
-        description="Ted Edmunds builds practical data products for environments where trust, risk, speed, and stakeholder alignment matter. This portfolio is shaped for roles that need analytics leadership across business, technology, governance, and AI adoption."
+        description="Ted Edmunds builds practical data products for healthcare and other regulated environments where trust, risk, speed, and stakeholder alignment matter. This portfolio is shaped for roles that need analytics leadership across business, technology, governance, cloud platforms, and AI adoption."
       >
         <div className="grid gap-5 md:grid-cols-3">
           {[
@@ -28,7 +28,7 @@ export default function AboutPage() {
       </Section>
       <Section eyebrow="Industry fit" title="Built for regulated data environments">
         <div className="grid gap-4 md:grid-cols-4">
-          {["Banking risk and Customer 360", "Insurance claims and member journeys", "Healthcare analytics and regulatory signals", "Enterprise AI governance and data platforms"].map((item) => (
+          {["Healthcare analytics, supply chain, and regulatory signals", "Insurance claims and member journeys", "Banking risk and Customer 360", "Enterprise AI governance and data platforms"].map((item) => (
             <div key={item} className="rounded-lg border border-slate-200 bg-white p-5 font-semibold leading-7 text-slate-800 shadow-sm">
               {item}
             </div>

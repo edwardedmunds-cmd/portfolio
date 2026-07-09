@@ -31,12 +31,10 @@ export const projects: Project[] = [
     eyebrow: "Banking data product",
     summary:
       "A flagship banking data product demo for executive KPIs, complaint analytics, credit risk visibility, governance, and AI-ready data foundations.",
-    problem:
-      "Banks need trusted, governed data products for growth, risk, complaints, and AI, but critical metrics often live across fragmented systems and inconsistent definitions.",
     sector: "Banking and financial services",
     value: "Shows how data product management, medallion architecture, semantic metrics, and governance turn banking data into board-ready decision support.",
-    repo: "https://github.com/tededmunds/portfolio/tree/main/app/projects/banking-data-platform",
-    readme: "https://github.com/tededmunds/portfolio/blob/main/docs/modern-bank-data-platform/README.md",
+    repo: "https://github.com/edwardedmunds-cmd/portfolio/tree/main/app/projects/banking-data-platform",
+    readme: "https://github.com/edwardedmunds-cmd/portfolio/blob/main/docs/modern-bank-data-platform/README.md",
     metrics: ["$42.8B deposits", "$31.4B loans", "8.7 complaints / 10K", "87 AI readiness"],
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Synthetic banking data", "CFPB/FRED-ready", "Governance artifacts"]
   },
@@ -48,7 +46,7 @@ export const projects: Project[] = [
       "A governance product surface for dataset discovery, ownership, quality scoring, lineage confidence, and approved AI use cases.",
     sector: "Enterprise AI and governance",
     value: "Connects metadata management to practical AI enablement for enterprise analytics, insurance, healthcare, and risk teams.",
-    repo: "https://github.com/tededmunds/ai-data-catalog-demo",
+    repo: "https://github.com/edwardedmunds-cmd/portfolio/tree/main/app/projects/ai-data-catalog",
     metrics: ["9 governed domains", "64 certified datasets", "97 lineage links", "12 approved AI uses"],
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Catalog metadata", "Governance workflow"]
   }

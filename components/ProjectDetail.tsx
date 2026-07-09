@@ -45,11 +45,14 @@ export function ProjectDetail({
         <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-slate-950 md:text-6xl">{title}</h1>
         <p className="mt-5 max-w-3xl text-xl leading-9 text-slate-600">{subtitle}</p>
         <div className="mt-7 flex flex-wrap gap-3">
-          <a href={repo} className="inline-flex rounded-md bg-slate-950 px-5 py-3 text-sm font-bold text-white hover:bg-slate-800">
+          <a href="#dashboard" className="inline-flex rounded-md bg-slate-950 px-5 py-3 text-sm font-bold text-white hover:bg-slate-800">
+            View Dashboard
+          </a>
+          <a href={repo} className="inline-flex rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:border-slate-500">
             Review GitHub repo
           </a>
-          <a href={SITE_LINKS.linkedin} className="inline-flex rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:border-slate-500">
-            Discuss on LinkedIn
+          <a href={`mailto:${SITE_LINKS.email}`} className="inline-flex rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:border-slate-500">
+            Contact
           </a>
         </div>
       </section>
@@ -77,13 +80,15 @@ export function ProjectDetail({
         </div>
       </Section>
 
-      <Section
-        eyebrow="Live product"
-        title="Interactive Dashboard"
-        description="All data is fictional and portfolio-safe. The dashboard is designed to show KPI hierarchy, trust signals, filtering, and the kind of product experience a regulated enterprise team could use in working sessions."
-      >
-        {dashboard}
-      </Section>
+      <section id="dashboard">
+        <Section
+          eyebrow="Live product"
+          title="Interactive Dashboard"
+          description="All confidential data is excluded. Portfolio demos use public data or fictional, portfolio-safe sample data to show KPI hierarchy, trust signals, filtering, and regulated-enterprise product workflows."
+        >
+          {dashboard}
+        </Section>
+      </section>
 
       <Section eyebrow="Architecture" title="Architecture">
         <ArchitectureDiagram nodes={architecture} />

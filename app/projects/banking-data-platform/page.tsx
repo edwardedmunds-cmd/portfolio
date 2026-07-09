@@ -69,10 +69,16 @@ export default function ModernBankDataPlatformPage() {
                 View Dashboard
               </a>
               <a
-                href="https://github.com/tededmunds/portfolio/blob/main/docs/modern-bank-data-platform/README.md"
+                href="https://github.com/edwardedmunds-cmd/portfolio/blob/main/docs/modern-bank-data-platform/README.md"
                 className="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:border-slate-500"
               >
                 GitHub README
+              </a>
+              <a
+                href="https://github.com/edwardedmunds-cmd/portfolio/tree/main/app/projects/banking-data-platform"
+                className="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:border-slate-500"
+              >
+                GitHub Repo
               </a>
               <Link href="/projects" className="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:border-slate-500">
                 All Projects

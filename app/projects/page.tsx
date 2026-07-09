@@ -13,7 +13,7 @@ export default function ProjectsPage() {
       </section>
       <Section
         title="Live product surfaces with case-study framing"
-        description="These fictional, portfolio-safe projects are designed for hiring conversations in banking, insurance, healthcare, AI governance, and enterprise analytics leadership."
+        description="These projects are designed for healthcare-first hiring conversations while showing portable data product leadership across banking, insurance, AI governance, and enterprise analytics. Confidential data is excluded; demos use public or fictional portfolio-safe data."
       >
         <div className="grid gap-5 md:grid-cols-3">
           {projects.map((project) => (

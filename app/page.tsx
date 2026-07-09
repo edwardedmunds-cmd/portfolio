@@ -28,15 +28,15 @@ const capabilities = [
 ];
 
 const outcomes = [
-  ["Banking", "Customer 360, risk visibility, data quality, consent-aware AI readiness"],
   ["Healthcare", "Regulatory intelligence, market signals, provider and patient-access analytics"],
+  ["Banking", "Customer 360, risk visibility, data quality, consent-aware AI readiness"],
   ["Insurance", "Claims operations, policy intelligence, fraud signals, member journey analytics"],
   ["Enterprise data", "Catalogs, lineage, executive metrics, platform adoption, governed self-service"]
 ];
 
 export default function Home() {
-  const featuredProject = projects.find((project) => project.slug === "banking-data-platform");
-  const remainingProjects = projects.filter((project) => project.slug !== "banking-data-platform");
+  const featuredProject = projects.find((project) => project.slug === "fda-device-intelligence");
+  const remainingProjects = projects.filter((project) => project.slug !== "fda-device-intelligence");
 
   return (
     <main>
@@ -45,10 +45,10 @@ export default function Home() {
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-teal-700">Executive data product portfolio</p>
           <h1 className="text-5xl font-bold tracking-tight text-slate-950 md:text-7xl">Ted Edmunds - Data Product Leader</h1>
           <p className="mt-6 max-w-2xl text-xl leading-9 text-slate-600">
-            Building enterprise analytics products that help leaders see risk, growth, quality, and AI readiness clearly enough to act.
+            Building healthcare analytics platforms, commercial data products, and executive dashboards that help leaders see risk, quality, spend, and AI readiness clearly enough to act.
           </p>
           <p className="mt-4 max-w-2xl leading-8 text-slate-600">
-            This portfolio is built for regulated, data-intensive organizations: banking, insurance, healthcare, and enterprise platforms where trusted metrics, governance, and adoption matter as much as the interface.
+            This portfolio is built for regulated, data-intensive organizations, with healthcare as the primary domain and banking, insurance, and enterprise platforms as adjacent examples where trusted metrics, governance, security, and adoption matter as much as the interface.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/projects" className="rounded-md bg-slate-950 px-5 py-3 text-sm font-bold text-white hover:bg-slate-800">
@@ -58,7 +58,7 @@ export default function Home() {
               Review Resume
             </Link>
             <Link href="/contact" className="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:border-slate-500">
-              Discuss a Role
+              Contact
             </Link>
           </div>
           <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold text-slate-600">
@@ -91,11 +91,11 @@ export default function Home() {
 
       <Section
         eyebrow="Featured case studies"
-        title="Executive data products for regulated industries"
-        description="The portfolio leads with a banking platform demo built to show data product management, governance, architecture, AI readiness, and executive reporting in one polished case study."
+        title="Healthcare-first data products for regulated industries"
+        description="The portfolio leads with a real public FDA AccessGUDID data product to show healthcare analytics, public-data ingestion, governance, API design, and executive dashboard thinking in one polished case study."
       >
         {featuredProject ? (
-          <div data-testid="homepage-bank-feature" className="mb-5 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <div data-testid="homepage-featured-project" className="mb-5 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="rounded-lg border border-slate-200 bg-slate-950 p-6 text-white shadow-sm">
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-teal-300">Featured project</p>
               <h3 className="mt-3 text-3xl font-bold tracking-tight">{featuredProject.title}</h3>
@@ -110,8 +110,11 @@ export default function Home() {
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link href={`/projects/${featuredProject.slug}`} className="rounded-md bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:bg-slate-100">
-                  Open Banking Demo
+                  View Dashboard
                 </Link>
+                <a href={featuredProject.repo} className="rounded-md border border-slate-600 px-5 py-3 text-sm font-bold text-white hover:border-slate-400">
+                  GitHub Repo
+                </a>
                 {featuredProject.readme ? (
                   <a href={featuredProject.readme} className="rounded-md border border-slate-600 px-5 py-3 text-sm font-bold text-white hover:border-slate-400">
                     Read GitHub README
@@ -123,9 +126,9 @@ export default function Home() {
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">What hiring managers should see fast</p>
               <div className="mt-5 grid gap-3">
                 {[
-                  "Banking KPIs tied to source lineage and ownership",
-                  "Medallion architecture with semantic and governance layers",
-                  "AI insights grounded in certified data products",
+                  "Healthcare public data turned into a decision-support application",
+                  "Ingestion, API, dashboard, and snapshot layers designed for deployment",
+                  "Governance, lineage, and refresh signals visible in the product",
                   "Roadmap, backlog, personas, risks, and success metrics"
                 ].map((item) => (
                   <div key={item} className="rounded-md border border-slate-200 bg-slate-50 p-4 font-semibold leading-6 text-slate-700">
